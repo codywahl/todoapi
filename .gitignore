@@ -4,3 +4,8 @@ bin/Debug/netcoreapp2.2/TodoApi.pdb
 bin/Debug/netcoreapp2.2/TodoApi.xml
 bin/Debug/netcoreapp2.2/TodoApi.deps.json
 bin/Debug/netcoreapp2.2/TodoApi.runtimeconfig.json
+obj/Debug/netcoreapp2.2/TodoApi.dll
+obj/Debug/netcoreapp2.2/TodoApi.pdb
+obj/Debug/netcoreapp2.2/TodoApi.xml
+obj/Debug/
+bin/
