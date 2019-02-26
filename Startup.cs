@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using TodoApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace TodoApi {
     public class Startup {
@@ -22,8 +25,22 @@ namespace TodoApi {
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen (c => {
-                c.SwaggerDoc ("v1", new Info { Title = "My API", Version = "v1" });
+                c.SwaggerDoc ("v1", new Info {
+                    Title = "My API", Version = "v1",
+                        Description = "A simple example ASP.NET Core Web API",
+                        TermsOfService = "None",
+                        Contact = new Contact {
+                            Name = "Cody Wahl",
+                                Email = "cody.wahl@rightcrowd.com"
+                        }
+                });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine (AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments (xmlPath);
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
